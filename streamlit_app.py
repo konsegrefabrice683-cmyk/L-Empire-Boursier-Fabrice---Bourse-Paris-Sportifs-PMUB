@@ -1,30 +1,27 @@
 import streamlit as st
+import pandas as pd
+from datetime import datetime
+import yfinance as yf
 
-st.set_page_config(page_title="Empire Fabrice", layout="wide")
+st.set_page_config(page_title="Fabrice AI Empire V2", page_icon="👑", layout="wide")
 
-st.title("L-EMPIRE BOURSIER FABRICE")
-st.success("VERT - APPLICATION EN LIGNE")
-st.write("Bourse Paris | Paris Sportifs | PMUB")
+st.markdown("<h1 style='text-align:center;color:#FFD700;'>👑 FABRICE AI EMPIRE V2</h1>", unsafe_allow_html=True)
+st.markdown(f"<p style='text-align:center;'>Filtre STRICT 72-80% | Ouaga | {datetime.now().strftime('%d/%m/%Y %H:%M')}</p>", unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns(3)
+SEUIL_MIN, SEUIL_MAX = 72, 80
 
-with col1:
-    st.subheader("Bourse Paris")
-    st.metric("CAC 40", "8145", "+1.2%")
-    st.write("En direct")
+with st.sidebar:
+    st.success(f"✅ Filtre: {SEUIL_MIN}-{SEUIL_MAX}%")
+    st.metric("Bankroll LONAB", "150 000 FCFA", "3% = 4500F")
+    st.metric("Bankroll PMU", "150 000 FCFA", "2% = 3000F")
+    st.info("📲 Alerte WhatsApp: Active 8h/jour")
+    st.warning("⚠️ VALUE mini: +12%")
 
-with col2:
-    st.subheader("Paris Sportifs")
-    match = st.selectbox("Match", ["Salitas vs EFO", "Etalons vs Ghana", "PSG vs Real"])
-    mise = st.number_input("Mise FCFA", 1000)
-    if st.button("Parier"):
-        st.balloons()
-        st.success("Pari valide")
+tab1, tab2, tab3, tab4 = st.tabs(["⚽ PARIS 72-80%", "🐎 PMU-B LONAB", "📈 BOURSE", "📸 PHOTO IA"])
 
-with col3:
-    st.subheader("PMUB")
-    chevaux = st.multiselect("Chevaux", ["1 Tonnerre", "2 Eclair", "3 Foudre", "4 Ouragan"])
-    if st.button("Valider PMU"):
-        st.success("Ticket valide")
-
-st.write("Cree par Fabrice - Ouagadougou")
+with tab1:
+    st.subheader("⚽ Paris Sportifs - Zone 72-80%")
+    col1, col2 = st.columns(2)
+    with col1:
+        match = st.text_input("Match", "Man City vs Arsenal")
+        marche = st.selectbox("Marché", ["Over 2.5 Buts", "BTTS Oui", "
