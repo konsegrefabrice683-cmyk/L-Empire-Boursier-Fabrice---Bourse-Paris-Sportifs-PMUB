@@ -2,16 +2,16 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 
-st.set_page_config(page_title="SEKA ULTRA", layout="wide")
-st.title("SEKA ULTRA V16.9 FINAL")
-st.caption(f"PARIS + PMU + BOURSE INTERNATIONALE | {datetime.now().strftime('%d/%m/%Y %H:%M')} | OUAGA")
+st.set_page_config(page_title="FABRICE EMPIRE MONDIAL", layout="wide")
+st.title("FABRICE EMPIRE MONDIAL ULTRA V16.9 FINAL")
+st.markdown("👤 **Créé par : FABRICE EMPIRE MONDIAL**")
+st.caption(f"PARIS + PMU + BOURSE INTERNATIONALE | {datetime.now().strftime('%d/%m/%Y %H:%M')} | OUAGA - FABRICE EMPIRE MONDIAL")
 
 tab_paris, tab_pmu, tab_bourse = st.tabs(["ANALYSE DU JOUR", "PMU-B COMPLET", "BOURSE INTERNATIONALE"])
 
 # --- PARIS AVEC MEME MENU QUE TA CAPTURE ---
 with tab_paris:
     st.subheader("PARIS LONAB - 7 TYPES")
-    # ICI C'EST LE MEME MENU QUE TON IMAGE VERTE
     type_paris = st.selectbox("Type LONAB", 
         ["1X2", "Double Chance", "BTTS Oui/Non", "Over/Under", "Cartons", "Corners", "Score Exact"], 
         key="paris_menu"
@@ -63,7 +63,7 @@ with tab_paris:
         ], columns=["Match","Marche","Cote LONAB","Proba","Value","IA %","STATUT"])
         st.code("TICKET CORNERS: Over 9.5 (1.90) + Over 8.5 (1.75) = 3.32 -> 9.960F")
 
-    else: # Score Exact
+    else:
         df = pd.DataFrame([
             ["Brest vs Nice", "2-1", 8.50, "12%", "+8.5%", 68.2, "FEU VERT"],
             ["Al-Ahli vs Khaleej", "3-1", 12.00, "9%", "+7.2%", 70.5, "FEU VERT"],
@@ -72,7 +72,6 @@ with tab_paris:
 
     st.dataframe(df, use_container_width=True)
 
-# --- PMU IDENTIQUE A TA CAPTURE ---
 with tab_pmu:
     st.subheader("PMU-B LONAB - 7 TYPES")
     type_pmu = st.selectbox("Type LONAB", ["Quinte+", "Quarte", "Tierce", "Couple Gagnant", "Couple Place", "Gagnant", "Place"], key="pmu_menu")
@@ -100,4 +99,4 @@ with tab_bourse:
         ["GOLD", 2345, "+6.5%", 77.8, "ULTRA", "ACHETER"],
     ], columns=["Actif","Prix","Var","IA","STATUT","Action"]), use_container_width=True)
 
-st.caption("SEKA ULTRA V16.9 - PARIS ET PMU MEME MENU - OUAGA")
+st.caption("FABRICE EMPIRE MONDIAL ULTRA V16.9 - OUAGA")
